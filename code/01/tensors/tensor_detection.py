@@ -4,7 +4,7 @@ from matplotlib import pyplot
 
 KX_SIZE = 10
 KY_SIZE = 10
-DETECTION_THRESHOLD = 245
+DETECTION_THRESHOLD = 3
 
 if __name__ == '__main__':
     picture = Image.open('square.png')

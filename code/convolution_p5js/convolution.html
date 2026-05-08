@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <title>Convolução com Kernels - p5.js</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+      background: #f0f0f0;
+      color: #222;
+    }
+    #interface {
+      margin-bottom: 10px;
+    }
+    #interface > * {
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    p {
+      margin: 5px 0 3px 0;
+      font-weight: bold;
+    }
+    input[type=number] {
+      width: 45px;
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid #999;
+      background: #fff;
+      display: block;
+      margin-bottom: 10px;
+    }
+    #calculationText {
+      position: absolute;
+      top: 20px;
+      left: 720px;
+      width: 360px;
+      background: rgba(50,50,50,0.85);
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      max-height: 320px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+    #kernelEditor {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Convolução com Kernels em Imagens (p5.js)</h2>
+
+  <div id="interface">
+    <label for="selectKernel">Escolha o kernel:</label>
+    <select id="selectKernel"></select>
+
+    <label><input type="checkbox" id="chkNormalize" checked> Normalizar kernel</label>
+
+    <button id="btnApplyFull">Aplicar filtro</button>
+    <button id="btnStep">Step (pixel a pixel)</button>
+    <button id="btnReset">Reset</button>
+
+    <br><br>
+
+    <label for="fileInput">Carregar imagem local:</label>
+    <input type="file" id="fileInput" accept="image/*" />
+  </div>
+
+  <div id="kernelEditor"></div>
+
+  <div style="position: relative;">
+    <!-- canvas p5.js será inserido aqui -->
+  </div>
+
+  <div id="calculationText" style="display:none;"></div>
+
+  <!-- p5.js v2.0.5 da CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/2.0.5/p5.min.js"></script>
+
+  <!-- Script do programa -->
+  <script src="convolution.js"></script>
+</body>
+</html>

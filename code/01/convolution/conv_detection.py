@@ -4,7 +4,7 @@ from matplotlib import pyplot
 
 KX_SIZE = 10
 KY_SIZE = 10
-DETECTION_THRESHOLD = 200
+DETECTION_THRESHOLD = 255
 
 def kernel(image, kx, ky, kx_size = KX_SIZE, ky_size= KY_SIZE):
 
@@ -18,7 +18,7 @@ def kernel(image, kx, ky, kx_size = KX_SIZE, ky_size= KY_SIZE):
 
 if __name__ == '__main__':
 
-    picture = Image.open('square.png')
+    picture = Image.open('square2.png')
     image = numpy.array(picture)
 
     x_size, y_size, n_channels = image.shape
@@ -28,9 +28,6 @@ if __name__ == '__main__':
     for x_pixel in range(x_size - KX_SIZE):
         for y_pixel in range(y_size - KY_SIZE):
             dd = kernel(image = image, kx = x_pixel, ky = y_pixel)
-
-            #if dd > 0:
-            #        print(f'x: {x_pixel}, y: {y_pixel} -- {dd}')
 
             for channel in range (n_channels):
                 distance_matrix[x_pixel + int(KX_SIZE / 2)][y_pixel + int(KY_SIZE / 2)][channel] = dd
